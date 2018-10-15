@@ -53,33 +53,41 @@ fetch('/api/blog/posts'{
 
 ...
 ```
-### BlogPost EndPoints
+## BlogPost EndPoints
 - 01 GET [`/api/blog/posts`](#01-retrieve-all-blog-posts) 
 - 02 GET [`/api/blog/find/:id`](#02-retrieve-a-single-post-by-post-id)
 - 03 POST [`/api/blog/new`](#03-insert-a-new-blog-post)
 - 04 PUT [`/api/blog/update/:id`](#04-update-an-existing-post)
-#### 01 Retrieve all blog posts
+### 01 Retrieve all blog posts
 ```
 /api/blog/posts
 ```
 
 This end-point returns all posts store in your database. You can filter the results with a URL query. For example, if you want to find all the posts which aren't saved as a draft, use the the following URL string `/api/blog/posts?draft=false`. You can specify as many conditions you want to be satisfied. For example, `/api/blog/posts?draft=true`
 
-#### 02 Retrieve a Single Post by Post ID
+### 02 Retrieve a Single Post by Post ID
 
 ```
 /api/blog/find/:id
 ```
 Get a post by it's unique ID (`_id`). 
 
-#### 03 Insert a New Blog-Post
+### 03 Insert a New Blog-Post
 ```
 /api/blog/new
 ```
 Insert a new blog post to database. You have to provide all the required fields. 
 
-#### 04 Update an Existing Post
+### 04 Update an Existing Post
 ```
 /api/blog/update/:id
 ```
 You can update an existing blog post. All you need is the unique id(`_id`) of that post.
+
+## User EndPoints
+- 01 GET `/api/user/all`
+- 02 GET `/api/user/find/:id`
+- 03 POST `/api/user/register`
+- 04 PUT `/api/user/update/:id`
+- 05 DELETE `/api/user/delete/:id`
+
