@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 
 const apiRouter = require('./routes/blogRoute');
 const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
+const authCheck = require('./middleware/authCheck');
 
 const app = express();
 mongoose.Promise = global.Promise;
@@ -18,7 +20,9 @@ app.use(express.urlencoded({ extended: false, limit: '50mb' }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/auth', authRouter)
+app.use('/api', authCheck);
 app.use('/api/blog', apiRouter);
-app.use('/api/users', usersRouter);
+app.use('/api/user', usersRouter);
 
 module.exports = app;

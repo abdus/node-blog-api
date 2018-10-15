@@ -1,10 +1,12 @@
 const express = require('express');
+const bcrypt = require('bcrypt-nodejs');
 const router = express.Router();
 const USER = require('../helpers/user-helper');
 
 /* GET all users */
 router.get('/all', (req, res, next) => {
-  USER.findAll()
+  
+  USER.findAll(req.query)
     .then(data => res.json(data))
     .catch(err => res.json({msg: err.message, code: err.code || 500}))
 });
@@ -18,6 +20,8 @@ router.get('/:id', (req, res, next) => {
 
 /* REGISTER a new user */
 router.post('/register', (req, res, next) => {
+  req.body.hashedPassword = bcrypt.hashSync(req.body.password);
+  
   USER.register(req.body)
     .then(data => res.json(data))
     .catch(err => res.json({msg: err.message, code: err.code || 500}))

@@ -9,8 +9,8 @@ module.exports = user;
 
 
 // FIND all user 
-user.findAll = () => {
-    return userSchema.find({}, {hashedPassword: 0, email: 0})
+user.findAll = (condition = {}) => {
+    return userSchema.find(condition, {hashedPassword: 0, email: 0})
 }
 
 // FIND a single user
@@ -20,6 +20,8 @@ user.find = user_id => {
 
 // REGISTER a new user 
 user.register = user_data => {
+    user_data.isApproved = false;
+    user_data.admin = false;
     let data_to_save = new userSchema(user_data);
     return userSchema.findOne({email: user_data.email})
     .then(data => data !== null ? {msg: 'Email already exist', code: 300} : data_to_save.save())
