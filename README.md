@@ -57,6 +57,7 @@ fetch('/api/blog/posts'{
 
 ...
 ```
+### BlogPost EndPoints
 #### 01 Retrieve all blog posts
 ```
 /api/blog/posts
