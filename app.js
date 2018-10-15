@@ -9,8 +9,8 @@ const apiRouter = require('./routes/blogRoute');
 const usersRouter = require('./routes/users');
 
 const app = express();
-mongoose.connect('mongodb://localhost/blog-db', {useNewUrlParser: true});
 mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/blog-db', {useNewUrlParser: true});
 
 app.use(logger('dev'));
 app.use(express.json({limit: '50mb'}));

@@ -8,10 +8,21 @@ let user = {}
 module.exports = user;
 
 
+// FIND all user 
+user.findAll = () => {
+    return userSchema.find({}, {hashedPassword: 0, email: 0})
+}
+
+// FIND a single user
+user.find = user_id => {
+    return userSchema.findById(user_id, {hashedPassword: 0, email: 0});
+}
+
 // REGISTER a new user 
 user.register = user_data => {
     let data_to_save = new userSchema(user_data);
-    return data_to_save.save();
+    return userSchema.findOne({email: user_data.email})
+    .then(data => data !== null ? {msg: 'Email already exist', code: 300} : data_to_save.save())
 }
 
 // UPDATE an existing user 

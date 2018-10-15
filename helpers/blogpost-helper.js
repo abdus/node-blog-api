@@ -33,6 +33,6 @@ blog.updatePost = (post_id, data_to_be_updated) => {
 }
 
 // DELETE a blog post
-blog.deletePost = user_id => {
-    return postSchema.findByIdAndRemove(user_id);
+blog.deletePost = post_id => {
+    return postSchema.findByIdAndRemove(post_id);
 }

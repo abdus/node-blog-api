@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
 const BLOG = require('../helpers/blogpost-helper')
 
 /* GET all posts*/
