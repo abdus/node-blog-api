@@ -29,4 +29,11 @@ router.put('/update/:id', (req, res, next) => {
     .catch(err => res.json({msg: err.message, code: err.code || 500})) 
 })
 
+/* DELETE a post */
+router.delete('/delete/:id', (req, res, next) => {
+  BLOG.deletePost(req.body.id)
+    .then(() => res.json({msg: 'success', code: 200}))
+    .catch(err => res.json({msg: err.message, code: err.code || 500}))
+})
+
 module.exports = router;
