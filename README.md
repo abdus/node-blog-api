@@ -6,10 +6,6 @@
 - [Introduction](#introduction)
 - [How to Setup Locally](#how-to-Setup-Locally)
 - [API Endpoints](#api-endpoints)
-    - 01 GET [`/api/blog/posts`](#01-retrieve-all-blog-posts) 
-    - 02 GET [`/api/blog/find/:id`](#02-retrieve-a-single-post-by-post-id)
-    - 03 POST [`/api/blog/new`](#03-insert-a-new-blog-post)
-    - 04 PUT [`/api/blog/update/:id`](#04-update-an-existing-post)
 
 ## Introduction
 This is a blog API built with Node JS and ExpressJS. It uses MongoDB for storing database. As of now, this project doesn't have front-end codes yet. You have to build front-end by yourself with any of the available framework (or with JS, HTML & CSS), make API call to back-end to fetch blogposts/users and render them in from-end. It uses JSON to transfar data between client and server.
@@ -58,6 +54,10 @@ fetch('/api/blog/posts'{
 ...
 ```
 ### BlogPost EndPoints
+- 01 GET [`/api/blog/posts`](#01-retrieve-all-blog-posts) 
+- 02 GET [`/api/blog/find/:id`](#02-retrieve-a-single-post-by-post-id)
+- 03 POST [`/api/blog/new`](#03-insert-a-new-blog-post)
+- 04 PUT [`/api/blog/update/:id`](#04-update-an-existing-post)
 #### 01 Retrieve all blog posts
 ```
 /api/blog/posts
