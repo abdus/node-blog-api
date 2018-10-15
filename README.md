@@ -6,7 +6,8 @@
 - [Introduction](#introduction)
 - [How to Setup Locally](#How-to-Setup-Locally)
 - [API Endpoints](#api-endpoints)
-    - 01 GET [`/api/blog/posts`](#01-GET-all-blog-posts) Retrieve all posts
+    - 01 GET [`/api/blog/posts`](#01-GET-all-blog-posts) 
+    - 02 GET [`/api/blog/find/:id`](#02-Retrieve-a-single-post-by-post-ID)
 
 ## Introduction
 This is a blog API built with Node JS and ExpressJS. It uses MongoDB for storing database. As of now, this project doesn't have front-end codes yet. You have to build front-end by yourself with any of the available framework (or with JS, HTML & CSS), make API call to back-end to fetch blogposts/users and render them in from-end. It uses JSON to transfar data between client and server.
@@ -59,4 +60,10 @@ fetch('/api/blog/posts'{
 /api/blog/posts
 ```
 
-Retrieve all posts from database. This enpoint accept URL parameter (`?draft=false`) to filter results.
+This end-point returns all posts store in your database. You can filter the results with a URL query. For example, if you want to find all the posts which aren't saved as a draft, use the the following URL string `/api/blog/posts?draft=false`. You can specify as many conditions you want to be satisfied. For example, `/api/blog/posts?draft=true`
+
+### 02 Retrieve a single post by post ID
+
+```
+/api/blog/find/:id
+```
