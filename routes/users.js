@@ -12,7 +12,7 @@ router.get('/all', (req, res, next) => {
 });
 
 /* GET a single user */
-router.get('/:id', (req, res, next) => {
+router.get('/find/:id', (req, res, next) => {
   USER.find(req.params.id)
     .then(data => res.json(data))
     .catch(err => res.json({msg: err.message, code: err.code || 500}));
@@ -28,7 +28,7 @@ router.post('/register', (req, res, next) => {
 })
 
 // UPDATE an user 
-router.put('/:id', (req, res, next) => {
+router.put('/update/:id', (req, res, next) => {
   USER.update(req.params.id, req.body)
     .then(() => res.json({msg: 'success', code: 200}))
     .catch(err => res.json({msg: err.message, code: err.code || 500}))
