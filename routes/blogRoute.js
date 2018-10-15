@@ -4,7 +4,7 @@ const BLOG = require('../helpers/blogpost-helper')
 
 /* GET all posts*/
 router.get('/posts', (req, res, next) => {
-  BLOG.getAllPost()
+  BLOG.getAllPost(req.query)
     .then(data => res.json(data))
     .catch(err => res.json({code: err.code || 500, msg: err.message}))
 })

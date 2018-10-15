@@ -8,8 +8,8 @@ const blog = {};
 module.exports = blog;
 
 // GET all blog post
-blog.getAllPost = async () => {
-    let all_posts = await postSchema.find();
+blog.getAllPost = async query => {
+    let all_posts = await postSchema.find(query);
     return all_posts
 }
 
