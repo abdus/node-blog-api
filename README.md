@@ -59,4 +59,4 @@ fetch('/api/blog/posts'{
 /api/blog/posts
 ```
 
-Retrieve all posts from database. This enpoint accept URL parameter (`?email=me@myself.com`) to filter results.
+Retrieve all posts from database. This enpoint accept URL parameter (`?draft=false`) to filter results.
